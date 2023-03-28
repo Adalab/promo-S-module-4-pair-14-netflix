@@ -48,5 +48,20 @@ insert into Actor (nameActor, lastnameActor, countryActor, birthdayActor) values
 ("John", "Travolta", "Estados Unidos", "1954-02-18");
 
 SELECT * FROM movies;
-SELECT titleMovie, genderMovie FROM movies WHERE yearMovie > 1990;
-SELECT titleMovie FROM movies WHERE categoryMovie = "Top 10";
+SELECT titleMovie, genderMovie,yearMovie FROM movies WHERE yearMovie > 1990;
+SELECT titleMovie,categoryMovie FROM movies WHERE categoryMovie = "Top 10";
+UPDATE movies SET yearMovie=1997 WHERE titleMovie="La vita è bella";
+SELECT * FROM MOVIES;
+UPDATE movies SET yearMovie=1997 WHERE idMovie=2;
+SELECT * FROM ACTOR;
+SELECT nameActor,birthdayActor from actor where birthdayActor between "1954-01-01" and "1960-01-01";
+SELECT nameActor, lastnameActor, countryActor FROM actor WHERE countryActor="Estados Unidos";
+SELECT userUser,plan_detailsUser FROM users WHERE plan_detailsUser="Standard";
+SELECT userUSer from users WHERE userUser like "M%";
+DELETE from Users WHERE idUser in (SELECT idUser from Users where userUser like "M%");
+SELECT idUser from Users where userUser like "M%";
+DELETE from Users WHERE idUser in (10,12);
+
+
+DELETE from Users WHERE userUser like "M%";
+
