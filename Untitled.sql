@@ -1,5 +1,6 @@
 create dataBase Netflix;
 use Netflix;
+
 create table movies(
 idMovie int auto_increment primary key not null, 
 titleMovie varchar(45) not null,
@@ -45,3 +46,7 @@ insert into Actor (nameActor, lastnameActor, countryActor, birthdayActor) values
 insert into Actor (nameActor, lastnameActor, countryActor, birthdayActor) values (
 "Roberto", "Benigni", "Italia", "1952-10-27"),
 ("John", "Travolta", "Estados Unidos", "1954-02-18");
+
+SELECT * FROM movies;
+SELECT titleMovie, genderMovie FROM movies WHERE yearMovie > 1990;
+SELECT titleMovie FROM movies WHERE categoryMovie = "Top 10";
