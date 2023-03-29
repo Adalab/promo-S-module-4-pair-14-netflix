@@ -7,15 +7,15 @@ Por favor marca a continuación los ejercicios que hayáis terminado:
 **4.1 MYSQL I:**
 
 - [x] 1.  Crea la base de datos.
-- [ ] 2.  Inserta valores a la bases de datos.
-- [ ] 3.  Crea un repositorio en Github.
+- [x] 2.  Inserta valores a la bases de datos.
+- [x] 3.  Crea un repositorio en Github.
 
 **4.2 MYSQL II:**
 
-- [ ] 1.  Consultas sobre las películas
-- [ ] 2.  Consultas sobre los actores.
-- [ ] 3.  Consultas sobre los usuarios.
-- [ ] 4.  Bonus: Agrega más campos a las tablas.
+- [x] 1.  Consultas sobre las películas
+- [x] 2.  Consultas sobre los actores.
+- [x] 3.  Consultas sobre los usuarios.
+- [x] 4.  Bonus: Agrega más campos a las tablas.
 
 **4.3 MYSQL III:**
 
