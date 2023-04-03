@@ -84,24 +84,33 @@ server.post("/login", (req, res) => {
       req.body.password,
     ])
     .then(([results, fields]) => {
-      results.forEach((result) => {
-        console.log("results");
-        console.log(result);
-        if (result) {
-          res.json({
-            success: true,
-            userId: "id_de_la_usuaria_encontrada",
-          });
-        } else {
-          res.json({
-            success: false,
-            errorMessage: "Usuaria/o no encontrada/o",
-          });
-        }
-      });
-    })
-    .catch((err) => {
-      console.log("no hay datos");
-      throw err;
+      console.log(results);
+      if (results.length) {
+        res.json({
+          success: true,
+          userId: "id_de_la_usuaria_encontrada",
+        });
+      } else {
+        res.json({
+          success: false,
+          errorMessage: "Usuaria/o no encontrada/o",
+        });
+      }
+      //monica
+      // results.forEach((result) => {
+      //   console.log("results");
+      //   console.log(result);
+      //   if (result) {
+      //     res.json({
+      //       success: true,
+      //       userId: "id_de_la_usuaria_encontrada",
+      //     });
+      //   } else {
+      //     res.json({
+      //       success: false,
+      //       errorMessage: "Usuaria/o no encontrada/o",
+      //     });
+      //   }
+      // });
     });
 });
