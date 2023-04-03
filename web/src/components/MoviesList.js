@@ -8,34 +8,19 @@ const MoviesList = (props) => {
   const renderMovies = () => {
     return props.movies.map((movie) => {
       return (
-        <li key={movie.id} className="card">
+        <li key={movie.idMovie} className="card">
           <img
             className="card__img"
-            src={movie.image}
-            alt={`Carátula de ${movie.title}`}
+            src={movie.imageMovie}
+            alt={`Carátula de ${movie.titleMovie}`}
           />
-          <h3 className="card__title">{movie.title}</h3>
-          <p className="card__description">Género: {movie.genre}</p>
+          <h3 className="card__title">{movie.titleMovie}</h3>
+          <p className="card__description">Género: {movie.genderMovie}</p>
         </li>
       );
     });
   };
-  //Monica: Tenemos que cambiar los nombres de los campos de nuestras tablas
-  // const renderMovies = () => {
-  //   return props.movies.map((movie) => {
-  //     return (
-  //       <li key={movie.idMovie} className="card">
-  //         <img
-  //           className="card__img"
-  //           src={movie.imageMovie}
-  //           alt={`Carátula de ${movie.titleMovie}`}
-  //         />
-  //         <h3 className="card__title">{movie.titleMovie}</h3>
-  //         <p className="card__description">Género: {movie.genderMovie}</p>
-  //       </li>
-  //     );
-  //   });
-  // };
+
   const renderEmptyList = () => {
     return <p>No hay películas en este listado</p>;
   };

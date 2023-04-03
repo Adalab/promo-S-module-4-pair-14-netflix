@@ -46,9 +46,11 @@ server.listen(serverPort, () => {
 //req:información de la petición
 //res:enviar una repuesta del endpoint
 server.get("/movies", (req, res) => {
+ const valor = req.query.genre
+ console.log(valor)
   console.log("Pidiendo a la base de datos información de los empleados.");
   connection
-    .query("SELECT * FROM movies")
+    .query(`SELECT * FROM movies WHERE genderMovie=?` , [valor])
     .then(([results, fields]) => {
       console.log("Información recuperada:");
       results.forEach((result) => {
