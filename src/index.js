@@ -46,11 +46,16 @@ server.listen(serverPort, () => {
 //req:información de la petición
 //res:enviar una repuesta del endpoint
 server.get("/movies", (req, res) => {
- const valor = req.query.genre
- console.log(valor)
+  const valor = req.query.genre ? req.query.genre : "%";
+  const order = req.query.sort ? req.query.sort : "asc";
+  console.log(valor);
   console.log("Pidiendo a la base de datos información de los empleados.");
   connection
-    .query(`SELECT * FROM movies WHERE genderMovie=?` , [valor])
+    // .query(`SELECT * FROM movies WHERE genderMovie=?` , [valor])
+    .query(
+      `SELECT * FROM movies WHERE genderMovie like ? order by titleMovie ${order}`,
+      [valor]
+    )
     .then(([results, fields]) => {
       console.log("Información recuperada:");
       results.forEach((result) => {
@@ -64,6 +69,39 @@ server.get("/movies", (req, res) => {
       });
     })
     .catch((err) => {
+      throw err;
+    });
+});
+//endpoint users
+server.post("/login", (req, res) => {
+  console.log("Body.", req.body.email);
+  console.log("Body.", req.body.password);
+
+  console.log("Pidiendo a la base de datos información de los usuarios.");
+  connection
+    .query(`SELECT * FROM users WHERE emailUser= ? and passwordUser= ?`, [
+      req.body.email,
+      req.body.password,
+    ])
+    .then(([results, fields]) => {
+      results.forEach((result) => {
+        console.log("results");
+        console.log(result);
+        if (result) {
+          res.json({
+            success: true,
+            userId: "id_de_la_usuaria_encontrada",
+          });
+        } else {
+          res.json({
+            success: false,
+            errorMessage: "Usuaria/o no encontrada/o",
+          });
+        }
+      });
+    })
+    .catch((err) => {
+      console.log("no hay datos");
       throw err;
     });
 });
