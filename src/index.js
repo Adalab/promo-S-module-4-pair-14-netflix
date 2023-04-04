@@ -50,10 +50,20 @@ server.get("/movies", (req, res) => {
   const order = req.query.sort ? req.query.sort : "asc";
   console.log(valor);
   console.log("Pidiendo a la base de datos información de los empleados.");
+
+  let query;
+
+  if( order === 'asc') {
+    query = 'SELECT * FROM movies WHERE genderMovie like ? order by titleMovie asc';
+  }
+  else {
+    query = 'SELECT * FROM movies WHERE genderMovie like ? order by titleMovie desc';
+  }
+
   connection
     // .query(`SELECT * FROM movies WHERE genderMovie=?` , [valor])
     .query(
-      `SELECT * FROM movies WHERE genderMovie like ? order by titleMovie ${order}`,
+      query,
       [valor]
     )
     .then(([results, fields]) => {
@@ -83,7 +93,7 @@ server.post("/login", (req, res) => {
       req.body.email,
       req.body.password,
     ])
-    .then(([results, fields]) => {
+    .then(([results]) => {
       console.log(results);
       if (results.length) {
         res.json({
@@ -96,21 +106,11 @@ server.post("/login", (req, res) => {
           errorMessage: "Usuaria/o no encontrada/o",
         });
       }
-      //monica
-      // results.forEach((result) => {
-      //   console.log("results");
-      //   console.log(result);
-      //   if (result) {
-      //     res.json({
-      //       success: true,
-      //       userId: "id_de_la_usuaria_encontrada",
-      //     });
-      //   } else {
-      //     res.json({
-      //       success: false,
-      //       errorMessage: "Usuaria/o no encontrada/o",
-      //     });
-      //   }
-      // });
     });
 });
+
+const staticServerPathWeb = './src/public-react'; // En esta carpeta ponemos los ficheros estáticos
+server.use(express.static(staticServerPathWeb));
+
+const staticServerPathImages = './src/public-movies-images'; // En esta carpeta ponemos los ficheros estáticos
+server.use(express.static(staticServerPathImages));
