@@ -33,7 +33,7 @@ server.use(cors());
 //para especificar el tamañ de intercambio de archivos
 // server.use(express.json({limit:"10mb"}));
 server.use(express.json());
-
+server.set("view engine", "ejs");
 // init express aplication
 const serverPort = 4000;
 server.listen(serverPort, () => {
@@ -53,26 +53,22 @@ server.get("/movies", (req, res) => {
 
   let query;
 
-  if( order === 'asc') {
-    query = 'SELECT * FROM movies WHERE genderMovie like ? order by titleMovie asc';
-  }
-  else {
-    query = 'SELECT * FROM movies WHERE genderMovie like ? order by titleMovie desc';
+  if (order === "asc") {
+    query =
+      "SELECT * FROM movies WHERE genderMovie like ? order by titleMovie asc";
+  } else {
+    query =
+      "SELECT * FROM movies WHERE genderMovie like ? order by titleMovie desc";
   }
 
   connection
-    // .query(`SELECT * FROM movies WHERE genderMovie=?` , [valor])
-    .query(
-      query,
-      [valor]
-    )
+    .query(query, [valor])
     .then(([results, fields]) => {
       console.log("Información recuperada:");
       results.forEach((result) => {
         console.log(result);
       });
 
-      // res.json(results);
       res.json({
         success: true,
         movies: results,
@@ -109,8 +105,29 @@ server.post("/login", (req, res) => {
     });
 });
 
-const staticServerPathWeb = './src/public-react'; // En esta carpeta ponemos los ficheros estáticos
+//endpoint users
+server.get("/movie/:movieId", (req, res) => {
+  console.log(req.params);
+  const foundMovie = req.params.movieId;
+  const query = `SELECT * FROM movies WHERE idMovie= ?`;
+  connection
+    .query(query, [foundMovie])
+    .then(([results]) => {
+      console.log("Información recuperada idMovie:");
+      console.log(results);
+      res.render("movie");
+      // res.json({
+      //   success: true,
+      //   movies: results,
+      // });
+    })
+    .catch((err) => {
+      throw err;
+    });
+});
+
+const staticServerPathWeb = "./src/public-react"; // En esta carpeta ponemos los ficheros estáticos
 server.use(express.static(staticServerPathWeb));
 
-const staticServerPathImages = './src/public-movies-images'; // En esta carpeta ponemos los ficheros estáticos
+const staticServerPathImages = "./src/public-movies-images"; // En esta carpeta ponemos los ficheros estáticos
 server.use(express.static(staticServerPathImages));
