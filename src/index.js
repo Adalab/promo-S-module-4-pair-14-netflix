@@ -105,7 +105,7 @@ server.post("/login", (req, res) => {
     });
 });
 
-//endpoint users
+//endpoint users dinámicos
 server.get("/movie/:movieId", (req, res) => {
   console.log(req.params);
   const foundMovie = req.params.movieId;
@@ -115,7 +115,8 @@ server.get("/movie/:movieId", (req, res) => {
     .then(([results]) => {
       console.log("Información recuperada idMovie:");
       console.log(results);
-      res.render("movie");
+      console.log(foundMovie);
+      res.render("movie", results[0]);
       // res.json({
       //   success: true,
       //   movies: results,
