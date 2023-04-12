@@ -61,8 +61,8 @@ Por favor marca a continuación los ejercicios que hayáis terminado:
 
 **4.9 Mongo II:**
 
-- [ ] 1. Conexión con la bases de datos de MongoDB
-- [ ] 2. Modelos para las colecciones
+- [x] 1. Conexión con la bases de datos de MongoDB
+- [x] 2. Modelos para las colecciones
 - [ ] 3. Listado de películas
 - [ ] 4. Ordena por nombre
 
