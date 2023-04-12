@@ -4,18 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../src/public-css/AppMovies.scss">
+    <link rel="stylesheet" href="../src/public-css/AppMovies.scss" />
     <title>Document</title>
   </head>
-  <body>
-    <p><%= genderMovie %></p>
-    <p><%= titleMovie %></p>
-    <p>
-      <%= categoryMovie %>
-    </p>
-    <p>
-      <%= yearMovie %>
-    </p>
-    <img src="<%= imageMovie %>" alt="imagen">
+  <body class="card">
+    <img class="card__img" src="<%= imageMovie %>" alt="imagen" />
+    <p class="card__description"><%= genderMovie %></p>
+    <p class="card__title"><%= titleMovie %></p>
+    <p><%= categoryMovie %></p>
+    <p><%= yearMovie %></p>
   </body>
 </html>

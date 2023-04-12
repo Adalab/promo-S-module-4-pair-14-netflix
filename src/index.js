@@ -2,6 +2,11 @@ const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2/promise");
 
+const mongoose = require("mongoose");
+
+const dbConnect = require("../config/connection");
+dbConnect();
+
 //guardamos la conexion
 let connection;
 //creamos la conexión

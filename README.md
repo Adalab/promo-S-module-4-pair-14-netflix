@@ -15,7 +15,7 @@ Por favor marca a continuación los ejercicios que hayáis terminado:
 - [x] 1.  Consultas sobre las películas
 - [x] 2.  Consultas sobre los actores.
 - [x] 3.  Consultas sobre los usuarios.
-- [x] 4.  Bonus: Agrega más campos a las tablas.
+- [ ] 4.  Bonus: Agrega más campos a las tablas.
 
 **4.3 MYSQL III:**
 
@@ -39,25 +39,25 @@ Por favor marca a continuación los ejercicios que hayáis terminado:
 
 - [x] 1. Filtrar por género
 - [x] 2. Ordenar por nombre
-- [ ] 3. Login
+- [x] 3. Login
 - [ ] 4. Bonus: Mantén logueada a la usuaria
 
 **4.7 Express JS III:**
 
-- [ ] 1. Servidor de estáticos para React
-- [ ] 2. Servidor de estáticos para las fotos
-- [ ] 3. Crea un motor de plantillas
+- [x] 1. Servidor de estáticos para React
+- [x] 2. Servidor de estáticos para las fotos
+- [x] 3. Crea un motor de plantillas
 
-  - [ ] 1. Obtener el id de la película a renderizar
-  - [ ] 2. Obtener la película
-  - [ ] 3. Renderiza una página cualquiera
-  - [ ] 4. Renderiza la película
+  - [x] 1. Obtener el id de la película a renderizar
+  - [x] 2. Obtener la película
+  - [x] 3. Renderiza una página cualquiera
+  - [x] 4. Renderiza la película
   - [ ] 5. Añade estilos
 
 **4.8 Mongo I:**
 
-- [ ] 1. Configura MongoDB Atlas
-- [ ] 2. Crea la bases de datos Netflix
+- [x] 1. Configura MongoDB Atlas
+- [x] 2. Crea la bases de datos Netflix
 
 **4.9 Mongo II:**
 
